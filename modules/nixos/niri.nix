@@ -19,7 +19,16 @@
 
         input.keyboard.xkb.layout = "fr";
 
-        layout.gaps = 2;
+        layout = {
+	  gaps = 4;
+
+	  focus-ring = {
+            width = 1.0;
+	    active-color   = "#7fff7f";
+	    inactive-color = "#505050";
+	  };
+	};
+
 	input.touchpad.natural-scroll = null ;
 	binds = {
           "Mod+Return".spawn = "kitty";

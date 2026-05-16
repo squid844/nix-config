@@ -19,6 +19,11 @@
   programs.kitty = {
     enable = true;
     package = self.packages.${pkgs.stdenv.hostPlatform.system}.myKitty;
+    shellIntegration.enableZshIntegration = true;
+  };
+
+  programs.zsh = {
+    enable = true;
   };
 
   home.sessionVariables = {

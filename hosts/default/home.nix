@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./kitty.nix
   ];
 
   home.username    = "n";
@@ -19,6 +20,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERMINAL = "kitty";
     # niri est Wayland-natif, ces variables sont importantes
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";

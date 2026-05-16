@@ -13,11 +13,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-#    niri-flake = {
-#      url = "github:sodiboo/niri-flake";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
   };
 
   outputs = { self, flake-parts, ... }@inputs:
@@ -29,6 +24,7 @@
         ./hosts/default/hardware-configuration.nix
         ./modules/nixos/niri.nix
         ./modules/nixos/noctalia.nix
+	./hosts/default/kitty.nix
       ];
 
       flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {

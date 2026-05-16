@@ -70,7 +70,7 @@
     noctalia-shell
     upower # for battery display
 #    pkgs.ankama-launcher
-    pkgs.openssl
+    kitty
   ];
 
   programs.firefox.enable = true;

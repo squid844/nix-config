@@ -1,7 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [
+  imports = [ ];
+  modules = [
     ./kitty.nix
   ];
 

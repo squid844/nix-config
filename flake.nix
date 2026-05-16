@@ -24,7 +24,7 @@
         ./hosts/default/hardware-configuration.nix
         ./modules/nixos/niri.nix
         ./modules/nixos/noctalia.nix
-	./hosts/default/kitty.nix
+	./modules/home-manager/kitty.nix
       ];
 
       flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {

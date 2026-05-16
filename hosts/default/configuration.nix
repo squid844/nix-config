@@ -70,14 +70,13 @@
     noctalia-shell
     upower # for battery display
 #    pkgs.ankama-launcher
-    kitty
   ];
 
   programs.firefox.enable = true;
 
   # Home Manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs self; };
     users."n" = import ./home.nix;
   };
   

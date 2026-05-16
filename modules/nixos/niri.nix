@@ -22,7 +22,7 @@
         layout.gaps = 2;
 	input.touchpad.natural-scroll = null ;
 	binds = {
-          "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
+          "Mod+Return".spawn = "kitty";
           "Mod+Q".close-window = null;
           "Mod+S".spawn-sh = "noctalia-shell ipc call launcher toggle";
         };

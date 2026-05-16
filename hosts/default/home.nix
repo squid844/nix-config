@@ -1,10 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, self, ... }:
 
 {
   imports = [ ];
-  modules = [
-    ./kitty.nix
-  ];
 
   home.username    = "n";
   home.homeDirectory = "/home/n";
@@ -19,6 +16,11 @@
     eza
   ];
 
+  programs.kitty = {
+    enable = true;
+    package = self.packages.${pkgs.stdenv.hostPlatform.system}.myKitty;
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "kitty";
@@ -26,6 +28,5 @@
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
   };
-
   programs.home-manager.enable = true;
 }

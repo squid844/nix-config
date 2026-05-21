@@ -25,6 +25,7 @@
         ./modules/nixos/niri.nix
         ./modules/nixos/noctalia.nix
 	./modules/home-manager/kitty.nix
+	./modules/home-manager/yazi.nix
       ];
 
       flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {

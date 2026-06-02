@@ -4,6 +4,7 @@
   imports = [ 
     self.homeModules.kitty
     self.homeModules.vscodium
+    self.homeModules.godot
     ];
 
   home.username    = "n";

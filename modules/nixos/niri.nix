@@ -11,7 +11,7 @@
       inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
       settings = {
         spawn-at-startup = [
-          "noctalia-shell"
+          (lib.getExe self'.packages.myNoctalia)
 	];
 
 	prefer-no-csd = {};

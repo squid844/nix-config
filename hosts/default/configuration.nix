@@ -68,7 +68,6 @@
     firefox
     git
     greetd.tuigreet
-    noctalia-shell
     upower # for battery display
     polkit_gnome
 #    pkgs.ankama-launcher
@@ -78,6 +77,7 @@
 
   # Home Manager
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs self; };
     backupFileExtension = "backup";
     users."n" = import ./home.nix;

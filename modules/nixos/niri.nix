@@ -41,6 +41,7 @@
           "Mod+Space".spawn-sh = "noctalia-shell ipc call launcher toggle";
 	  "Mod+Escape".spawn-sh = "noctalia-shell ipc call sessionMenu toggle";
 	  "Mod+E".spawn = "nautilus";
+	  "Mod+B".spawn = "firefox";
 
 	  "Mod+Left".focus-column-left   = {};
 	  "Mod+Right".focus-column-right = {};

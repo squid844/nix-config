@@ -7,7 +7,7 @@
     self.nixosModules.myMachineHardware
     self.nixosModules.niri
     self.nixosModules.nautilus
-    ../../modules/nixos/main-user.nix
+    ./main-user.nix
   ];
 
   # Main user
@@ -20,7 +20,7 @@
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  
   # Réseau
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -70,6 +70,7 @@
     greetd.tuigreet
     noctalia-shell
     upower # for battery display
+    polkit_gnome
 #    pkgs.ankama-launcher
   ];
 
@@ -97,6 +98,21 @@
     };
   };
   
+  # Authentification pour apps graphiques
+  security.polkit.enable = true;
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
   # Power management for noctalia
   services.upower.enable = true;
   # Ne pas toucher

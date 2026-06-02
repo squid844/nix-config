@@ -1,7 +1,10 @@
 { config, pkgs, inputs, self, ... }:
 
 {
-  imports = [ ];
+  imports = [ 
+    self.homeModules.kitty
+    self.homeModules.vscodium
+    ];
 
   home.username    = "n";
   home.homeDirectory = "/home/n";
@@ -16,14 +19,14 @@
     eza
   ];
 
-  programs.kitty = {
-    enable = true;
-    package = self.packages.${pkgs.stdenv.hostPlatform.system}.myKitty;
-    shellIntegration.enableZshIntegration = true;
-  };
-
   programs.zsh = {
     enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    history = {
+      size = 10000;
+      ignoreDups = true;
+    };
   };
 
   home.sessionVariables = {

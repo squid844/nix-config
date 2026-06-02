@@ -19,25 +19,6 @@
   };
 
   outputs = { self, flake-parts, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-
-      imports = [
-        ./hosts/default/configuration.nix
-        ./hosts/default/hardware-configuration.nix
-        ./modules/nixos/niri.nix
-        ./modules/nixos/noctalia.nix
-	./modules/nixos/nautilus.nix
-	./modules/home-manager/kitty.nix
-      ];
-
-      flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs self; };
-        modules = [
-          self.nixosModules.myMachineConfiguration
-          self.nixosModules.myMachineHardware
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-    };
+    flake-parts.lib.mkFlake { inherit inputs; }
+      (inputs.import-tree ./modules);
 }

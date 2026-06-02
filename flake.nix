@@ -7,7 +7,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    wrapper-modules = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,8 +27,8 @@
         ./hosts/default/hardware-configuration.nix
         ./modules/nixos/niri.nix
         ./modules/nixos/noctalia.nix
-	./modules/home-manager/kitty.nix
 	./modules/nixos/nautilus.nix
+	./modules/home-manager/kitty.nix
       ];
 
       flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {

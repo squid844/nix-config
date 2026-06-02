@@ -6,6 +6,7 @@
   imports = [
     self.nixosModules.myMachineHardware
     self.nixosModules.niri
+    self.nixosModules.nautilus
     ../../modules/nixos/main-user.nix
   ];
 

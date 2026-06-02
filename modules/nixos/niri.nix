@@ -23,7 +23,7 @@
 	  gaps = 4;
           always-center-single-column = {};	
 	  focus-ring = {
-            width = 1.0;
+            width = 1.5;
 	    active-color   = "#7fff7f";
 	    inactive-color = "#505050";
 	  };
@@ -40,11 +40,12 @@
           "Mod+Q".close-window = {};
           "Mod+Space".spawn-sh = "noctalia-shell ipc call launcher toggle";
 	  "Mod+Escape".spawn-sh = "noctalia-shell ipc call sessionMenu toggle";
+	  "Mod+E".spawn = "nautilus";
+
 	  "Mod+Left".focus-column-left   = {};
 	  "Mod+Right".focus-column-right = {};
 	  "Mod+Up".focus-window-or-workspace-up     = {};
 	  "Mod+Down".focus-window-or-workspace-down = {};
-
 	  "Mod+CTRL+Left".move-column-left   = {};
 	  "Mod+CTRL+Right".move-column-right = {};
 	  "Mod+CTRL+Up".move-window-up-or-to-workspace-up       = {};

@@ -16,11 +16,6 @@
     eza
   ];
 
-  programs.yazi = {
-    enable = true;
-    package = self.packages.$(pkgs.stdenv.hostPlatform.system).yazi;
-  };
-
   programs.kitty = {
     enable = true;
     package = self.packages.${pkgs.stdenv.hostPlatform.system}.myKitty;

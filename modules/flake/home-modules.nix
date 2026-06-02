@@ -10,14 +10,15 @@
     };
 
     vscodium = { pkgs, lib, ... }: {
-      programs.vscode = {
-        enable = true;
-        package = pkgs.vscodium;
-	extensions = with pkgs.vscode-extensions; [
+      home.packages = [
+      (pkgs.vscode-with-extensions.override {
+        vscode = pkgs.vscodium;
+	vscodeExtensions = with pkgs.vscode-extensions; [
 	  jnoortheen.nix-ide
 	  ms-vscode.cpptools
 	];
-      };
-    };
+	})
+    ];
   };
+};
 }

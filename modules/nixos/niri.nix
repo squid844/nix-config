@@ -38,8 +38,8 @@
 	binds = {
           "Mod+Return".spawn = "kitty";
           "Mod+Q".close-window = {};
-          "Mod+Space".spawn-sh = "noctalia-shell ipc call launcher toggle";
-	  "Mod+Escape".spawn-sh = "noctalia-shell ipc call sessionMenu toggle";
+          "Mod+Space".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+	  "Mod+Escape".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call sessionMenu toggle";
 	  "Mod+E".spawn = "nautilus";
 	  "Mod+B".spawn = "firefox";
 

@@ -65,15 +65,12 @@
   environment.systemPackages = with pkgs; [
     neovim
     wget
-    firefox
     git
     greetd.tuigreet
     upower # for battery display
     polkit_gnome
-#    pkgs.ankama-launcher
+    ankama-launcher
   ];
-
-  programs.firefox.enable = true;
 
   # Home Manager
   home-manager = {

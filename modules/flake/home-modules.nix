@@ -19,13 +19,22 @@
           geequlim.godot-tools
           ms-dotnettools.csharp
           ms-dotnettools.vscode-dotnet-runtime
+          vscodevim.vim
 	      ];
 	   })
     ];
-
-
     xdg.configFile."VSCodium/User/settings.json".text = builtins.toJSON {
-      "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "${pkgs.dotnetCorePackages.dotnet_8.sdk}/bin";
+      "dotnetAcquisitionExtension.existingDotnetPath" = [
+        {
+          "extensionId" = "ms-dotnettools.csharp";
+          "path" = "${pkgs.dotnetCorePackages.dotnet_8.sdk}/bin";
+        }
+        {
+          "extensionId" = "ms-dotnettools.vscode-dotnet-runtime";
+          "path" = "${pkgs.dotnetCorePackages.dotnet_8.sdk}/bin";
+        }
+      ];
+      "dotentAcquisitionExtension.allowInvalidPaths" = true;
       "godotTools.lsp.serverPort" = 6005;
     };
   };
@@ -35,6 +44,17 @@
       pkgs.godot-mono 
       pkgs.dotnetCorePackages.dotnet_8.sdk
       ];
+
+      home.sessionVariables = {
+        DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_8.sdk}";
+      };
+  };
+
+  firefox = { pkgs, lib, ... } : {
+    programs.firefox = {
+      enable = true;
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.firefox;
+    };
   };
 };
 }

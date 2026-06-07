@@ -36,6 +36,7 @@
     # niri est Wayland-natif, ces variables sont importantes
     NIXOS_OZONE_WL = "1";
     MOZ_ENABLE_WAYLAND = "1";
+    APPIMAGE = "/run/current-system/sw/bin/ankama-launcher"; 
   };
   programs.home-manager.enable = true;
 }

@@ -53,7 +53,19 @@
   firefox = { pkgs, lib, ... } : {
     programs.firefox = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.firefox;
+      # package par défaut = pkgs.firefox, pas besoin de l'overrider
+      profiles.default = {
+        id = 0;
+        isDefault = true;
+        settings = {
+          "browser.startup.homepage" = "https://duckduckgo.com";
+        };
+        search = {
+          force = true;          # recommandé : HM réécrit search.json à chaque lancement
+          default = "ddg";
+          order = [ "ddg" ];
+        };
+      };
     };
   };
 };

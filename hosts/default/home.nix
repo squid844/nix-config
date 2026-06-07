@@ -5,6 +5,7 @@
     self.homeModules.kitty
     self.homeModules.vscodium
     self.homeModules.godot
+    self.homeModules.firefox
     ];
 
   home.username    = "n";

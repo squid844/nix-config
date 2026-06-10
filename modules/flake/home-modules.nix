@@ -49,12 +49,17 @@
         DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_8.sdk}";
       };
   };
+  obsidian = { pkgs, lib, ... } : {
+    programs.obsidian = {
+      enable = true;
+    };
+  };
 
   firefox = { pkgs, lib, ... } : {
     programs.firefox = {
       enable = true;
-      # package par défaut = pkgs.firefox, pas besoin de l'overrider
       profiles.default = {
+        name = "default";
         id = 0;
         isDefault = true;
         settings = {
@@ -65,6 +70,9 @@
           default = "ddg";
           order = [ "ddg" ];
         };
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        ublock-origin
+      ];
       };
     };
   };

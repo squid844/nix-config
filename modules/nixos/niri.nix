@@ -16,15 +16,18 @@
 
 	prefer-no-csd = {};
 	xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+  input.keyboard.xkb.layout = "fr";
+  window-rule = {
+    geometry-corner-radius = 8;
+    clip-to-geometry = true;
+  };
 
-        input.keyboard.xkb.layout = "fr";
-
-        layout = {
-	  gaps = 4;
-          always-center-single-column = {};	
+  layout = {
+	 	gaps = 4;
+    always-center-single-column = {};	
 	  focus-ring = {
-            width = 1.5;
-	    active-color   = "#7fff7f";
+      width = 2.0;
+	    active-color   = "#347a9b";
 	    inactive-color = "#505050";
 	  };
 	  preset-column-widths = [

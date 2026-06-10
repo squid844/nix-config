@@ -69,9 +69,13 @@
     greetd.tuigreet
     upower # for battery display
     polkit_gnome
-    ankama-launcher
+    openvpn
   ];
 
+  # vpn
+  networking.networkmanager.plugins = with pkgs; [
+    networkmanager-openvpn
+  ];
   # Home Manager
   home-manager = {
     useGlobalPkgs = true;

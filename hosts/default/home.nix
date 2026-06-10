@@ -6,6 +6,7 @@
     self.homeModules.vscodium
     self.homeModules.godot
     self.homeModules.firefox
+    self.homeModules.obsidian
     ];
 
   home.username    = "n";
@@ -25,6 +26,7 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    initExtra = "PROMPT='%F{#9ece6a}%n@%m%f:%F{#7aa2f7}%~%f/ > '";
     history = {
       size = 10000;
       ignoreDups = true;
